@@ -23,14 +23,18 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 Load balancing ensures that the application will be highly available, in addition to restricting traffic to the network.
 - What aspect of security do load balancers protect? What is the advantage of a jump box?
-Load balancers protects applications from emerging threats and DDoS attacks. The advantage of a jump box is
-more security. Jump boxes are secure computers that admins connect to use as a starting point to connect to other servers.
+  
+Load balancers protects applications from emerging threats and DDoS attacks. It protects the availability aspect. The advantage of a jump box is providing more security. Jump boxes are secure computers that admins connect to use as a starting point to connect to other servers.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the logs and system traffic.
+
 - What does Filebeat watch for? 
+
 Filebeat watches for log files/locations and collects log events.
+
 - What does Metricbeat record? 
-Metricbeat collects metrics and statistics that it collects and ships them to the outputs that you want them to go.
+
+Metricbeat collects metrics and statistics and ships them to the outputs that you want them to go.
 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
@@ -57,7 +61,7 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | No                  | 96.245.194.1XX       |
+| Jump Box | Yes                 | 96.245.194.1XX       |
 | Web-1    | No                  | 10.1.0.10            |
 | Web-2    | No                  | 10.1.0.10            |
 | ELKVM    | No                  | 10.1.0.10            |
@@ -65,18 +69,21 @@ A summary of the access policies in place can be found in the table below.
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_ 
+- What is the main advantage of automating configuration with Ansible?
+   You can put commands from multiple servers into a single playbook. 
 
 The playbook implements the following tasks:
 - In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...Install docker Io
-- ...Install python pip
-- ...Install docker
-- ...systemctl -w vm.max_map_counts=26144
+- Install docker.io
+- Install python3-pip
+- Install docker module
+- Increase virtual memory
+- Using more memory
+- Download and install docker elk container
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![dockerPS](Screenshots/dockerPS.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
